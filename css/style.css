@@ -1,0 +1,496 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    /* 各ブラウザが持っている外部、余白、行間を初期化する */
+    box-sizing: border-box;
+    /* 幅を指定した要素（タグ）にborder、paddingを設定した際に要素が広がってしまうことを防ぐため */      
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    /*   ここまでフォントファミリー  各OSに適したフォントを用意しておく*/
+    /* "Helvetica Neue" macのsafariの英語、Arial mac windowの英語  "Hiragino Kaku Gothic ProN"はmacの日本語、"Hiragino Sans"は前の文字がなかった場合、Meiryoはwindowの日本語 */
+    color: #555;
+    /* サイト全体の文字色を定義しておく */
+}
+
+
+
+ul {
+    list-style: none;
+    /*   liの装飾を削除する  */
+}
+
+
+a {
+    text-decoration: none;
+    /*   aタグの初期設定。aタグはでデフォルトで持っている下線を消しておく */
+}
+
+img{
+    max-width: 100%;
+    /* 親要素の大きさ以上大きくならず、かつ、自身の原寸大以上に大きくならない */
+    height: auto;
+    /* レイアウトシフトを起こさないようにimgタグにwidthと、heightを設定させたときのCSSでの対処方法 */
+    vertical-align: bottom;
+    /* imgは、文字と同等扱いなので、必ず下部に余白（デセンダー）が出来てしまうのを防ぐ。他の防ぐ方法としてインライン要素をブロック要素に変える方法もあり */
+}
+
+
+
+
+/*-----------------------------------------
+    pc max- setting   
+-----------------------------------------*/
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/*PCの情報コンテンツの最大幅の設定 ------ 各パーツでこのCSSを再利用（マルチクラス）、または流用*/
+/*-----------------------------------------
+    header setting
+------------------------------------------*/
+
+.header_inner {
+    display: flex;
+    /* 子要素、水平方向の揃えの親要素設定  */
+    height: 100px;
+    /* 高さ指定 */
+    align-items: center;
+    /* heightの垂直中央揃えのオプション  */
+    justify-content: space-between
+}
+
+header h1{
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+header p{
+    font-size: 14px;
+}   
+
+header .query{
+    display: block;
+    padding: 15px 30px;
+    color: #fff;
+    background-color: #333;
+}
+
+
+/*-----------------------------------------
+    nav_menu setting
+------------------------------------------*/
+
+nav{
+    background-color:#333;
+    margin-bottom: 3px;
+}
+
+
+nav ul {
+    display: flex ;
+    /* 子要素、水平方向の揃えの親要素設定  */   
+}
+
+nav li{
+    width: 25%;
+    border-left: 1px dotted #fff;
+}
+
+nav li:last-child {
+    border-right: 1px dotted #fff;
+}
+
+nav li a {
+    display: block;
+    text-align: center;
+    line-height: 65px;
+    /* aの高さを65pxに取得 */
+    color: #fff;  
+}
+
+nav li a:hover {
+    color: #444;
+    background-color: #eee;
+}
+
+
+/*-----------------------------------------
+    main_image setting
+------------------------------------------*/
+
+.main_image{
+    background: url(../img/main_back_image.jpg) no-repeat center/cover;
+    /* 背景画像を表示去るためのショートカットで、下記4行と同じ意味 */
+    /*
+     background-image: url(../img/main_back_image.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+     */
+
+    height: 450px;
+    /* 背景画像を表示には、高さが必要（450pxに設定） */
+
+}
+
+
+/*-----------------------------------------
+    .slogan
+------------------------------------------*/
+ .slogan{
+    /* width: 600px; */
+    max-width: 600px;
+    /* スマホ対応の大きな枠を作る際には、必ず指定された幅より小さくなったとき幅が可変するように、max-widthを使うべき */
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 0 70px;
+}
+
+.slogan h2{
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.slogan p{
+    line-height: 1.7;
+}
+
+
+
+
+/*-----------------------------------------
+    .contents setting
+------------------------------------------*/
+.contents{
+    margin-bottom: 100px;
+    /* 次の下のブロックに余白を設定 */
+}
+
+
+.contents h3{
+    border-left: 6px solid #333;
+    padding:2px 10px; 
+    font-size: 20px;  
+    margin-bottom: 15px;  
+}
+
+.contents h4{
+    font-size: 18px;  
+    margin-bottom: 15px;
+}
+
+.contents h4 span{
+    font-size: 14px;
+
+}
+
+.contents .content_item{
+    display: flex;
+    /* 子要素、水平方向の揃えの親要素設定  */
+    justify-content: space-between;
+    /*  水平方向の揃えのオプション ( 両端揃い )*/
+    margin-bottom: 50px;
+     /* 次の下のブロックに余白を設定 */
+
+}
+
+.contents .content_item .content_photo{
+    width: 30%;
+    /* 幅の取得 */
+}
+.contents .content_item .content_text{
+    width: 65%;
+    /* 幅の取得 */  
+}
+.contents .content_item .content_text p{
+    line-height: 1.7;
+    /* 一番読みやすい行間は、line-heightの、1.5～2の間とされてる */    
+    letter-spacing: 0.05em;
+    /* 一番読みやすい文字間は、letter-spacingの、0.05em～0.08emの間とされてる ただし、教科書も含めて多少のデータの前後あり*/
+    font-size: 14px;
+}
+
+
+/*-----------------------------------------
+    news setting
+------------------------------------------*/
+
+.news{
+    margin-bottom: 100px;
+    /* 次の下のブロックに余白を設定 */
+}
+
+
+
+.news h3{
+    border-left: 6px solid #333;
+    padding:2px 10px; 
+    font-size: 20px;  
+    margin-bottom: 15px;   
+}
+
+.news dl{
+    display: flex;
+    /* 子要素、水平方向の揃えの親要素設定  */
+    align-items: center;
+    /* 高さの中央揃えのオプション  */
+    flex-wrap: wrap;
+   /* 親要素の幅から溢れ出た場合に、折り返してくれる設定 */ 
+    gap:10px 0;   
+}
+
+.news dt{
+    width: 20%;
+    /* 幅指定 20% */
+    line-height: 50px;
+    /* line-heightで、1行の文字列を垂直中央に配置 50px */
+    text-align: center;
+    /* 幅指定された中のテキスト水平中央揃い */
+    background-color: #333;
+    color: #fff;
+    /* 背景色・フォントカラーは適宜 */
+    
+}
+
+.news dd{
+    width: 80%;
+    /* 幅指定 80% */
+    line-height: 1.4;
+    /* 行間少し狭め(1.4)で設定 */
+    padding-left: 30px;
+
+
+}
+
+.news dd a{
+    color: #555;
+    /* フォントカラー等適宜 */
+}
+
+.news dd a:hover{
+    text-decoration: underline;
+    /* ホバーの際下線の設定 */
+}
+
+/*-----------------------------------------
+    footer setting
+------------------------------------------*/
+
+footer{
+    background-color: #333;
+}
+
+
+.footer_inner p{
+    text-align: right;
+    line-height: 100px;
+    color: #fff;
+}
+
+
+@media (max-width:768px){
+    /*-----------------------------------------
+    header responsive setting
+    ------------------------------------------*/
+
+    .header_inner {
+        display: block;
+        /* 子要素、水平方向の揃えの親要素設定を無効(block)にする  */
+        /* height: 100px; */
+        height: auto
+        /* 全体設定で指定された値をなしにしても、その値が残るのである条件の時には、初期設定(auto)にする */
+        /* 高さ指定 */
+        /* align-items: center; */
+        /* heightの垂直中央揃えのオプション  */
+        /* justify-content: space-between */
+    }
+
+    .logo{
+        padding: 20px 0;
+        text-align: center;
+        /* h1,pを囲むプロックの上下にpaddingの設定と、子要素のh1,pのテキストを中央揃いさせる */
+    }
+
+    header h1{
+        font-size: 26px;
+        margin-bottom: 5px;
+    }
+
+    header p{
+        font-size: 14px;
+    }   
+
+    header .query{
+        /* display: block; */
+        padding: 15px 0;
+        text-align: center;
+        /* 左右のpaddingを0にして、テキストを中央揃いにするのもありかも */
+        /* color: #fff;
+        background-color: #333; */
+        margin-bottom: 10px;
+        /* スマホ対応の縦並びの時だけ、次のブロックの余白を付けるのがベターかも */
+    }
+
+    /*-----------------------------------------
+    nav_menu responsive setting
+    ------------------------------------------*/
+    nav{
+        background-color:#333;
+        margin-bottom: 3px;
+    }
+    
+    
+    nav ul {
+        display: block ;
+        /* 子要素、水平方向の揃えの親要素設定を無効(block)にする  */  
+    }
+    
+    nav li{
+        width: auto;
+        /* ブロックボックスの幅の初期設定(auto)が、100%を指定 */
+        border-left: 0;
+        /* border-left: 1px dotted #fff; */
+        /* ある条件の時だけ、無しにしても全体設定の内容が消えるわけではないので、0にして初期化する */
+        border-bottom: 1px solid #fff;
+        /* 新たに、border-bottomの設定をk加えてみる */
+    }
+    
+    nav li:last-child {
+        border-right:0 ;
+        /* border-right: 1px dotted #fff; */
+        /* ある条件の時だけ、無しにしても全体設定の内容が消えるわけではないので、0にして初期化する */
+    }
+    
+    nav li a {
+        display: block;
+        text-align: center;
+        line-height: 65px;
+        /* aの高さを65pxに取得 */
+        color: #fff;  
+    }
+
+ /*-----------------------------------------
+    main_image responsive setting
+------------------------------------------*/
+
+    .main_image{
+        background: url(../img/main_back_image.jpg) no-repeat center/cover;
+        /* 背景画像を表示去るためのショートカットで、下記4行と同じ意味 */
+        /*
+        background-image: url(../img/main_back_image.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        */
+
+        height: 300px;
+        /* 背景画像を表示には、高さが必要（300pxに設定） */
+        /* スマホは、表示領域が狭いので、高さを適宜微調整が必要かも */
+
+    } 
+    
+ /*-----------------------------------------
+    main responsive setting
+------------------------------------------*/  
+
+    main{
+        padding: 0 20px;
+    }
+/*-----------------------------------------
+    .contents responsive setting
+------------------------------------------*/
+    .contents .content_item{
+        /* display: flex; */
+        display: block;
+        /* 子要素、水平方向の揃えの親要素設定を無効(block)にする  */  
+        /* justify-content: space-between; */
+        /*  水平方向の揃えのオプション ( 両端揃い )*/
+        margin-bottom: 50px;
+        /* 次の下のブロックに余白を設定 */
+
+    }
+
+    .contents .content_item .content_photo{
+        /* width: 30%; */
+        width: auto;
+        /* ブロックボックスの幅の初期設定(auto)が、100%を指定 */
+        margin-bottom: 20px;
+        /* 次のブロックとの外が余白を設定した方がベターかも */
+    }
+    .contents .content_item .content_text{
+        /* width: 65%; */
+        width: auto;
+        /* ブロックボックスの幅の初期設定(auto)が、100%を指定 */
+    }
+
+/*-----------------------------------------
+    news responsive setting
+------------------------------------------*/
+    .news dl{
+        /* display: flex; */
+        display: block;
+        /* 子要素、水平方向の揃えの親要素設定を無効(block)にする  */ 
+        /* align-items: center; */
+        /* 高さの中央揃えのオプション  */
+        /* flex-wrap: wrap; */
+        /* 親要素の幅から溢れ出た場合に、折り返してくれる設定 */    
+    }
+
+    .news dt{
+        /* width: 20%; */
+        width: auto;
+        /* ブロックボックスの幅の初期設定(auto)が、100%を指定 */
+        line-height: 50px;
+        /* line-heightで、1行の文字列を垂直中央に配置 50px */
+        text-align: center;
+        /* 幅指定された中のテキスト水平中央揃い */
+        background-color: #333;
+        color: #fff;
+        margin-bottom: 5px;
+        /* 背景色・フォントカラー・外側下余白等は適宜 */
+        
+    }
+
+    .news dd{
+        /* width: 80%; */
+        width: auto;
+        /* ブロックボックスの幅の初期設定(auto)が、100%を指定 */
+        line-height: 1.4;
+        /* 行間少し狭め(1.4)で設定 */
+        padding-left: 0;
+        /* スマホ対応の際には、内側余白の設定が無くてもベター */
+        margin-bottom: 20px;
+        /* 次のブロックとの外が余白をせってした方がベターかも */
+
+
+
+    }
+
+/*-----------------------------------------
+    footer responsive  setting
+------------------------------------------*/
+
+
+    .footer_inner p{
+        /* text-align: right; */
+        text-align: center;
+        /* スマホの際には、テキストの中央揃いの方が、ベターかもq */
+        /* line-height: 100px;
+        color: #fff; */
+    }
+
+
+
+
+}
+
+
+
